@@ -6,21 +6,24 @@ import tqdm
 
 SPLIT = 0.7
 class Prediction:
-    def __init__(self, data, targets, log=False):
+    def split(data):
         sp = int(SPLIT*len(data))
+        return data[:sp], data[sp:]
+
+    def __init__(self, data, targets, log=False):
         # training, test = data[sp:], data[:sp]
 
         n_inputs = data.shape[1]
         n_targets = max(targets)+1
-        print(n_inputs, int(n_targets))
+        # print(n_inputs, int(n_targets))
 
         train_scale = abs(data).max(0)
         train_shift = data.mean(0) / train_scale
 
         normalized = (data/train_scale - train_shift)[:, None]
 
-        train_scaled, test_scaled = normalized[:sp], normalized[sp:]
-        train_targets, test_targets = targets[:sp], targets[sp:]
+        train_scaled, test_scaled = Prediction.split(normalized)
+        train_targets, test_targets = Prediction.split(targets)
 
         input_var = T.row('X', dtype='float64')
         target_var = T.vector('y', dtype='int64')
