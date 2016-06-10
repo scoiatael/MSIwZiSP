@@ -4,41 +4,36 @@ import theano
 import theano.tensor as T
 import tqdm
 
-def normalize(arr):
-    a = []
-    arr = list(map(lambda x: x[1], arr))
-    arr = list(zip(*[arr[i:] for i in range(4)]))
-    for i in range(len(arr)):
-        foo = []
-        foo += list(arr[i][:-1])
-        diff = arr[i][-1] - arr[i][-2]
-        foo += [sign(diff)]
-        a.append(foo)
-    return array(a)[:, None]
-
+SPLIT = 0.7
 class Prediction:
-    def __init__(self, data, log=False):
-        training, test = map(normalize, data)
+    def __init__(self, data, targets, log=False):
+        sp = int(SPLIT*len(data))
+        # training, test = data[sp:], data[:sp]
 
-        train_scale = abs(training).max(0)
-        train_scale[0, -1] = 1
+        n_inputs = data.shape[1]
+        n_targets = max(targets)+1
+        print(n_inputs, int(n_targets))
 
-        train_shift = training.mean(0) / train_scale
-        train_shift[0, -1] = -1
+        train_scale = abs(data).max(0)
+        train_shift = data.mean(0) / train_scale
 
-        train_scaled, test_scaled = map(lambda x: x/train_scale - train_shift, [training, test])
+        normalized = (data/train_scale - train_shift)[:, None]
+
+        train_scaled, test_scaled = normalized[:sp], normalized[sp:]
+        train_targets, test_targets = targets[:sp], targets[sp:]
 
         input_var = T.row('X', dtype='float64')
         target_var = T.vector('y', dtype='int64')
 
-        network = lasagne.layers.InputLayer((1,3), input_var)
+        network = lasagne.layers.InputLayer((1, n_inputs), input_var)
 
         network = lasagne.layers.DenseLayer(network,
                                             100,
                                              W=lasagne.init.GlorotUniform(),
                                             nonlinearity = lasagne.nonlinearities.rectify)
+
         network = lasagne.layers.DenseLayer(network,
-                                            3,
+                                            n_targets,
                                             nonlinearity = lasagne.nonlinearities.softmax)
 
         # create loss function
@@ -64,19 +59,19 @@ class Prediction:
         self.train_fn = train_fn
         self.train_scaled = train_scaled
         self.test_scaled = test_scaled
+        self.train_targets = train_targets
+        self.test_targets = test_targets
         self.log = log
 
     
     def train(self):
         for epoch in tqdm.tqdm(range(2000)):
             loss = array([0., 0.])
-            for batch in self.train_scaled:
-                input_batch = batch[:, :-1]
-                target_batch = batch[:, -1]
-                loss += self.train_fn(input_batch, [round(target_batch[0])])
+            for input_batch, target_batch in zip(self.train_scaled, self.train_targets):
+                loss += self.train_fn(input_batch, [int(target_batch)])
             if epoch % 200 == 0:
                 avg_loss, avg_acc = loss / len(self.train_scaled)
                 #print("Epoch %d: Loss %g Acc: %g" % (epoch + 1, avg_loss, avg_acc))
                 
     def network_attributes(self):
-        return [self.train_scaled, self.test_scaled, self.predict_fn]
+        return [(self.train_scaled, self.train_targets), (self.test_scaled, self.test_targets), self.predict_fn]
