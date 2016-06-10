@@ -1,0 +1,28 @@
+ | 2016-05-31  | Tue  | +112,097 112,097 |  -- 0 |  $0  -  $0 | 
+ | 2016-06-01  | Wed  | +401 112,498 |  +99,243,583 99,243,583 |  $24.8K  -  $397K | 
+ | 2016-06-02  | Thu  | +338 112,836 |  +342,072 99,585,655 |  $86  -  $1.4K | 
+ | 2016-06-03  | Fri  | +465 113,301 |  +343,188 99,928,843 |  $86  -  $1.4K | 
+ | 2016-06-04  | Sat  | +518 113,819 |  +369,706 100,298,549 |  $92  -  $1.5K | 
+ | 2016-06-05  | Sun  | +375 114,194 |  +379,452 100,678,001 |  $95  -  $1.5K | 
+ | 2016-06-06  | Mon  | +280 114,474 |  +366,057 101,044,058 |  $92  -  $1.5K | 
+ | 2016-06-07  | Tue  | +396 114,870 |  +337,344 101,381,402 |  $84  -  $1.3K | 
+ | 2016-06-08  | Wed  | +508 115,378 |  +302,482 101,683,884 |  $76  -  $1.2K | 
+ | 2016-06-09  | Thu  | +436 115,814 |  +304,506 101,988,390 |  $76  -  $1.2K | 
+ | 2016-06-10  | Fri  | +257 116,071 |  +368,978 102,357,368 |  $92  -  $1.5K | 
+ | Daily Averages |  |  | +124  | +10,198,800 |  $850  -  $13.6K | 
+ | Last 30 Days |  |  | +3,717  | +305,964,000  | $25.5K  -  $408K | 
+ | Yearly Projections |  |  | +44.6K  | +3.7B |  $306K  -  $4.9M | 
+ YouTube Channel Similar Channels See Future Projections Apply for Partnership 
+
+ Youtube Statistical History for pekesclublima 
+
+ | 		 	g = new Dygraph(  	// containing div 	document.getElementById('DailySubscribers'), 	// CSV or path to a CSV file. 	"Date,Daily Subs\n" + "2016-06-01,338\n" + "2016-06-02,465\n" + "2016-06-03,518\n" + "2016-06-04,375\n" + "2016-06-05,280\n" + "2016-06-06,396\n" + "2016-06-07,508\n" + "2016-06-08,436\n" + "2016-06-09,257\n", { 			title: 'Daily Subs Gained for pekesclublima ', 			legend: 'always', 			ylabel: 'Daily Subs', 			titleHeight: 20, 			labelsDivStyles: { 							'background': 'none', 							'margin-top': '-10px', 							'text-align': 'right', 						  }, 			strokeWidth: 1, 			colors: ["#dd2323", 					 "#dd2323", 					 "#dd2323", 					 "#dd2323"], 			labelsKMB: true, 			maxNumberWidth: 10 			} 	); 	 | 		 	g = new Dygraph(  	// containing div 	document.getElementById('TotalSubscribers'), 	// CSV or path to a CSV file. 	"Date,Total Subs\n" + "2016-06-01,112498\n" + "2016-06-02,112836\n" + "2016-06-03,113301\n" + "2016-06-04,113819\n" + "2016-06-05,114194\n" + "2016-06-06,114474\n" + "2016-06-07,114870\n" + "2016-06-08,115378\n" + "2016-06-09,115814\n" + "2016-06-10,116071\n", { 			title: 'Total Subscribers Gained for pekesclublima ', 			legend: 'always', 			ylabel: 'Total Subs', 			titleHeight: 20, 			labelsDivStyles: { 							'background': 'none', 							'margin-top': '-10px', 							'text-align': 'right', 						  }, 			strokeWidth: 1, 			colors: ["#dd2323", 					 "#dd2323", 					 "#dd2323", 					 "#dd2323"], 			labelsKMB: true, 			maxNumberWidth: 10 			} 	); 	 | 		 	g = new Dygraph(  	// containing div 	document.getElementById('DailyVideoViews'), 	// CSV or path to a CSV file. 	"Date,Daily Views\n" + "2016-06-01,342072\n" + "2016-06-02,343188\n" + "2016-06-03,369706\n" + "2016-06-04,379452\n" + "2016-06-05,366057\n" + "2016-06-06,337344\n" + "2016-06-07,302482\n" + "2016-06-08,304506\n" + "2016-06-09,368978\n", { 			title: 'Daily Video Views for pekesclublima ', 			legend: 'always', 			ylabel: 'Daily Views', 			titleHeight: 20, 			labelsDivStyles: { 							'background': 'none', 							'margin-top': '-10px', 							'text-align': 'right', 						  }, 			strokeWidth: 1, 			colors: ["#dd2323", 					 "#dd2323", 					 "#dd2323", 					 "#dd2323"], 			labelsKMB: true, 			maxNumberWidth: 10 			} 	); 	 | 		 	g = new Dygraph(  	// containing div 	document.getElementById('TotalVideoViews'), 	// CSV or path to a CSV file. 	"Date,Total Views\n" + "2016-06-01,99243583\n" + "2016-06-02,99585655\n" + "2016-06-03,99928843\n" + "2016-06-04,100298549\n" + "2016-06-05,100678001\n" + "2016-06-06,101044058\n" + "2016-06-07,101381402\n" + "2016-06-08,101683884\n" + "2016-06-09,101988390\n" + "2016-06-10,102357368\n", { 			title: 'Total Video Views for pekesclublima ', 			legend: 'always', 			ylabel: 'Total Views', 			titleHeight: 20, 			labelsDivStyles: { 							'background': 'none', 							'margin-top': '-10px', 							'text-align': 'right', 						  }, 			strokeWidth: 1, 			colors: ["#dd2323", 					 "#dd2323", 					 "#dd2323", 					 "#dd2323"], 			labelsKMB: true, 			maxNumberWidth: 10 			} 	); 	 |  
+
+
+
+
+
+
+
+
+
