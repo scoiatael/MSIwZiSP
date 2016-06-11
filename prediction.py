@@ -14,7 +14,7 @@ class Prediction:
         # training, test = data[sp:], data[:sp]
 
         n_inputs = data.shape[1]
-        n_targets = max(targets)+1
+        n_targets = int(max(targets)+1)
         # print(n_inputs, int(n_targets))
 
         train_scale = abs(data).max(0)
